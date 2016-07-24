@@ -1,0 +1,22 @@
+add pokemon entities:
+  title: 'Create new Pokemon entities'
+
+administer pokemon entities:
+  title: 'Administer Pokemon entities'
+  description: 'Allow to access the administration form to configure Pokemon entities.'
+  restrict access: true
+
+delete pokemon entities:
+  title: 'Delete Pokemon entities'
+
+edit pokemon entities:
+  title: 'Edit Pokemon entities'
+
+access pokemon overview:
+  title: 'Access the Pokemon overview page'
+
+view published pokemon entities:
+  title: 'View published Pokemon entities'
+
+view unpublished pokemon entities:
+  title: 'View unpublished Pokemon entities'

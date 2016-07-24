@@ -1,0 +1,11 @@
+entity.pokemon.add_form:
+  route_name: entity.pokemon.add_form
+  title: 'Add Pokemon'
+  appears_on:
+    - entity.pokemon.collection
+entity.pokemon_type.add_form:
+  route_name: 'entity.pokemon_type.add_form'
+  title: 'Add Pokemon type'
+  appears_on:
+    - entity.pokemon_type.collection
+

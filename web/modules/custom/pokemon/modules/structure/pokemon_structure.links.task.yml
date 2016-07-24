@@ -1,0 +1,21 @@
+# Pokemon routing definition
+pokemon.settings_tab:
+  route_name: pokemon.settings
+  title: 'Settings'
+  base_route: pokemon.settings
+entity.pokemon.canonical:
+  route_name: entity.pokemon.canonical
+  base_route: entity.pokemon.canonical
+  title: 'View'
+
+entity.pokemon.edit_form:
+  route_name: entity.pokemon.edit_form
+  base_route: entity.pokemon.canonical
+  title: Edit
+
+entity.pokemon.delete_form:
+  route_name:  entity.pokemon.delete_form
+  base_route:  entity.pokemon.canonical
+  title: Delete
+  weight: 10
+

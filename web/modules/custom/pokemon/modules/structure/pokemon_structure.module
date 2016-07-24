@@ -1,0 +1,30 @@
+<?php
+
+use Drupal\pokemon_structure\Entity\Pokemon;
+
+/**
+ * Implements hook_help().
+ */
+function pokemon_structure_help($route_name, \Drupal\Core\Routing\RouteMatchInterface $route_match) {
+
+}
+
+function pokemon_structure_parse_pokemon() {
+
+}
+
+/**
+ * Implements hook_/path/to/files/foo.txt().
+ */
+function pokemon_structure_delete_pokemon() {
+  $x = 1;
+
+  while($x <= 152) {
+    $pokemon = Pokemon::load($x);
+    if ($pokemon) {
+      //dpm($pokemon->id());
+      $pokemon->delete();
+    }
+    $x++;
+  }
+}

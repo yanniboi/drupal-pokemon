@@ -1,0 +1,57 @@
+<?php
+
+use Drupal\pokemon_structure\Entity\Pokemon;
+use Drupal\pokemon_structure\Entity\PokemonType;
+
+
+/**
+ * Implements hook_install().
+ */
+function pokemon_structure_install() {
+  $pokemon_json = file_get_contents(__DIR__ . '/pokemon.json');
+  $pokemons = json_decode($pokemon_json);
+  foreach ($pokemons as $pokemon) {
+    $values = [
+      //'number' => $pokemon->Number,
+      'name' =>$pokemon->Name,
+      'description' =>$pokemon->Classification,
+//      'type1' =>$pokemon->{'Type I'}[0],
+//      'type2' =>$pokemon->{'Type II'}[0],
+//      'attack1' =>$pokemon->{'Fast Attack(s)'},
+//      'weight' =>$pokemon->Weight,
+//      'height' =>$pokemon->Height,
+//      'prevolution' =>$pokemon->Height,
+//      'evolution' =>$pokemon->Height,
+//      'requirements' =>$pokemon->Height,
+    ];
+
+    $pokemon = Pokemon::create($values);
+    $pokemon->save();
+  }
+
+  $pokemon_types_json = file_get_contents(__DIR__ . '/pokemon_types.json');
+  $pokemon_types = json_decode($pokemon_types_json);
+
+  foreach ($pokemon_types as $key => $pokemon_type) {
+
+    $values = [
+      'id' => $key + 1,
+      'label' =>$pokemon_type->name,
+    ];
+
+    foreach (['from', 'to'] as $direction) {
+      foreach (['no', 'half', 'double'] as $severity) {
+        if (!empty($pokemon_type->damage_relations->{$severity . '_damage_' . $direction})) {
+          $damage_key = $severity . '_damage_' . $direction;
+          foreach ($pokemon_type->damage_relations->{$damage_key} as $damage_type) {
+            //$values[$severity . '_damage_' . $direction][] = $damage_type->name;
+          }
+        }
+      }
+    }
+
+    $pokemon_type = PokemonType::create($values);
+    $pokemon_type->save();
+  }
+
+}

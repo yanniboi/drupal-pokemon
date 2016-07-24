@@ -1,0 +1,5 @@
+name: Pokemon Structure
+type: module
+description: 'Pokemon entity structure.'
+core: 8.x
+

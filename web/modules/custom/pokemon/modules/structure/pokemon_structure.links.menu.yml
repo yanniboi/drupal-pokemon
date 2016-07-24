@@ -1,0 +1,21 @@
+# Pokemon menu items definition
+entity.pokemon.collection:
+  title: 'Pokemon list'
+  route_name: entity.pokemon.collection
+  description: 'List Pokemon entities'
+  parent: system.admin_structure
+  weight: 100
+
+pokemon.admin.structure.settings:
+  title: Pokemon settings
+  description: 'Configure Pokemon entities'
+  route_name: pokemon.settings
+  parent: system.admin_structure
+# Pokemon type menu items definition
+entity.pokemon_type.collection:
+  title: 'Pokemon type'
+  route_name: entity.pokemon_type.collection
+  description: 'List Pokemon type (bundles)'
+  parent: system.admin_structure
+  weight: 99
+
